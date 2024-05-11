@@ -1,0 +1,48 @@
+-- EXERCICIOS 
+
+create database bd2exercicios;
+use bd2exercicios;
+
+create table usuarios(
+id int primary key auto_increment,
+nome varchar (255) not null,
+email varchar (255) not null unique,
+senha varchar(100) not null,
+perfil varchar (50) not null
+);
+
+insert into usuarios(nome, email, senha, perfil)
+values ("André Neves", "andr@andr.com.br", SHA2("123456789", 256), "DESENVOLVEDOR");
+
+insert into usuarios(nome, email, senha, perfil)
+values ("Luciene", "lu@lu.com.b", SHA2("987654321", 256), "ADMINISTRADOR");
+
+insert into usuarios(nome, email, senha, perfil)
+values ("Ana", "ana@ana.com.br", SHA2("989898989", 256), "GERENTE");
+
+describe usuarios;
+select * from usuarios;
+
+describe carros;
+select * from carros;
+
+
+-- PERGUNTAS DA TABELA "CARRO"
+
+create table carro (
+  id int(11) primary key auto_increment,
+  nome varchar(200) not null,
+  valor int(11),
+  endereco varchar(255)
+);
+
+rename table carro to carros;
+
+alter table carros
+modify column valor float;
+
+alter table carros
+drop column endereco;
+
+alter table carros
+add column observacao text;
