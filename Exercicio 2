@@ -1,0 +1,35 @@
+create database exerc2;
+
+use exerc2;
+
+CREATE TABLE estudantes (
+    id INT,
+    nome VARCHAR(255) NOT NULL,
+    cidade VARCHAR(255) NOT NULL
+);
+
+ALTER TABLE estudantes
+ADD PRIMARY KEY (id);
+
+CREATE TABLE escritorios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    localizacao VARCHAR(255) NOT NULL,
+    nome_responsavel VARCHAR(255) NOT NULL,
+    cpf_responsavel VARCHAR(14) NOT NULL UNIQUE
+);
+
+CREATE TABLE autores (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL
+);
+
+ create table artigos (
+	id int(11) primary key auto_increment,
+    nome varchar(255) not null,
+    valor float not null,
+    autor_id int(11) not null
+);
+ 
+ALTER TABLE artigos
+ADD COLUMN autor_id INT(11),
+ADD CONSTRAINT fk_autor FOREIGN KEY (autor_id) REFERENCES autores(id);
